@@ -1,0 +1,34 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: pub get
+    - name: Analyze library
+      run: dartanalyzer lib
+    - name: Analyze tests
+      run: dartanalyzer test
+    - name: Run tests
+      env:
+        FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+        FIGMA_ASSETS_FILE: ${{ secrets.FIGMA_ASSETS_FILE }}
+        FIGMA_EUFEMIA_IOS_FILE: ${{ secrets.FIGMA_EUFEMIA_IOS_FILE }}
+        FIGMA_TEST_FILE: ${{ secrets.FIGMA_TEST_FILE }}
+        FIGMA_TEAM: ${{ secrets.FIGMA_TEAM }}
+        FIGMA_PROJECT: ${{ secrets.FIGMA_PROJECT }}
+
+      run: pub run test
