@@ -1,3 +1,7 @@
+## 1.0.0+2
+
+- Readme badges
+
 ## 1.0.0+1
 
 - Publishing step in CI workflow (test)
