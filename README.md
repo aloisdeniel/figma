@@ -13,7 +13,7 @@ A simple usage example:
 import 'package:figma/figma.dart';
 
 main() {
-  var client = FigmaClient('token');
+  final client = FigmaClient('token');
 
   final file = await client.getFile('file_key');
 }
