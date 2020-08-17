@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Join `ids` query param with comma instead of semicolon
+
 ## 1.0.2
 
 - Add `authenticatedGet` method to call arbitrary Figma API endpoints

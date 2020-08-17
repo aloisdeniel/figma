@@ -66,7 +66,7 @@ class FigmaQuery {
 
   Map<String, String> get params {
     var map = {
-      'ids': ids?.join(';'),
+      'ids': ids?.join(','),
       'scale': scale?.toString(),
       'format': format,
       'version': version,
