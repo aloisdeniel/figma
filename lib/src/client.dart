@@ -16,6 +16,18 @@ class FigmaClient {
 
   FigmaClient(this.accessToken, [this.apiVersion = 'v1']);
 
+  Future<Map<String, dynamic>> authenticatedGet(String url) async {
+    final uri = Uri.parse(url);
+
+    return await post(uri.toString(), headers: _authHeaders).then((res) {
+      if (res.statusCode >= 200 && res.statusCode < 300) {
+        return jsonDecode(res.body);
+      } else {
+        throw FigmaError(code: res.statusCode, message: res.body);
+      }
+    });
+  }
+
   Future<FileResponse> getFile(String key, [FigmaQuery query]) async {
     return await _getFigma('/files/$key', query)
         .then((data) => FileResponse.fromJson(data));

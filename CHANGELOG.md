@@ -1,3 +1,9 @@
+# Changelog
+
+## 1.0.2
+
+- Add `authenticatedGet` method to call arbitrary Figma API endpoints
+
 ## 1.0.1
 
 - Export `FigmaQuery` class
