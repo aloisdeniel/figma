@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Export `FigmaQuery` class
+
 ## 1.0.0+2
 
 - Readme badges
