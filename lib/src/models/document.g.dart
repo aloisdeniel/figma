@@ -9,12 +9,12 @@ part of 'document.dart';
 Document _$DocumentFromJson(Map<String, dynamic> json) {
   return Document(
     children: (json['children'] as List)
-        ?.map(
-            (e) => e == null ? null : Node.fromJson(e as Map<String, dynamic>))
+        ?.map(const NodeJsonConverter().fromJson)
         ?.toList(),
   );
 }
 
 Map<String, dynamic> _$DocumentToJson(Document instance) => <String, dynamic>{
-      'children': instance.children,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
     };

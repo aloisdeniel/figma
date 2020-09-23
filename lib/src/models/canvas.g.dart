@@ -9,8 +9,7 @@ part of 'canvas.dart';
 Canvas _$CanvasFromJson(Map<String, dynamic> json) {
   return Canvas(
     children: (json['children'] as List)
-        ?.map(
-            (e) => e == null ? null : Node.fromJson(e as Map<String, dynamic>))
+        ?.map(const NodeJsonConverter().fromJson)
         ?.toList(),
     backgroundColor: json['backgroundColor'] == null
         ? null
@@ -25,7 +24,8 @@ Canvas _$CanvasFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$CanvasToJson(Canvas instance) => <String, dynamic>{
-      'children': instance.children,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
       'backgroundColor': instance.backgroundColor,
       'prototypeStartNodeID': instance.prototypeStartNodeID,
       'exportSettings': instance.exportSettings,

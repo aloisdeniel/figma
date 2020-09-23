@@ -9,8 +9,7 @@ part of 'boolean_operation.dart';
 BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) {
   return BooleanOperation(
     children: (json['children'] as List)
-        ?.map(
-            (e) => e == null ? null : Node.fromJson(e as Map<String, dynamic>))
+        ?.map(const NodeJsonConverter().fromJson)
         ?.toList(),
     operation: _$enumDecodeNullable(_$OperationEnumMap, json['operation']),
   );
@@ -18,7 +17,8 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
     <String, dynamic>{
-      'children': instance.children,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
       'operation': _$OperationEnumMap[instance.operation],
     };
 
