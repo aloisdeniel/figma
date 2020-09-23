@@ -100,7 +100,7 @@ class Vector extends Node {
   /// A mapping of a StyleType to style ID (see [Style]) of styles present on
   /// this node. The style ID can be used to look up more information about the
   /// style in the top-level styles field.
-  final Map<StyleType, String> styles;
+  final Map<StyleTypeKey, String> styles;
 
   Vector({
     String id,

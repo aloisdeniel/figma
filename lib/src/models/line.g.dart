@@ -68,7 +68,7 @@ Line _$LineFromJson(Map<String, dynamic> json) {
         _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
     styles: (json['styles'] as Map<String, dynamic>)?.map(
       (k, e) =>
-          MapEntry(_$enumDecodeNullable(_$StyleTypeEnumMap, k), e as String),
+          MapEntry(_$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
     ),
   );
 }
@@ -105,7 +105,7 @@ Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
       'strokeGeometry': instance.strokeGeometry,
       'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'styles':
-          instance.styles?.map((k, e) => MapEntry(_$StyleTypeEnumMap[k], e)),
+          instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
     };
 
 T _$enumDecode<T>(
@@ -196,9 +196,9 @@ const _$StrokeAlignEnumMap = {
   StrokeAlign.center: 'CENTER',
 };
 
-const _$StyleTypeEnumMap = {
-  StyleType.fill: 'FILL',
-  StyleType.text: 'TEXT',
-  StyleType.effect: 'EFFECT',
-  StyleType.grid: 'GRID',
+const _$StyleTypeKeyEnumMap = {
+  StyleTypeKey.fill: 'fill',
+  StyleTypeKey.text: 'text',
+  StyleTypeKey.effect: 'effect',
+  StyleTypeKey.grid: 'grid',
 };

@@ -36,7 +36,7 @@ class Star extends Vector {
     double strokeMiterAngle,
     List<dynamic> strokeGeometry,
     StrokeAlign strokeAlign,
-    Map<StyleType, String> styles,
+    Map<StyleTypeKey, String> styles,
   }) : super(
           id: id,
           name: name,

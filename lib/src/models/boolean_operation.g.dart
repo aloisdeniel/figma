@@ -72,7 +72,7 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) {
         _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
     styles: (json['styles'] as Map<String, dynamic>)?.map(
       (k, e) =>
-          MapEntry(_$enumDecodeNullable(_$StyleTypeEnumMap, k), e as String),
+          MapEntry(_$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
     ),
   );
 }
@@ -110,7 +110,7 @@ Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
       'strokeGeometry': instance.strokeGeometry,
       'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'styles':
-          instance.styles?.map((k, e) => MapEntry(_$StyleTypeEnumMap[k], e)),
+          instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
       'children':
           instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
       'operation': _$OperationEnumMap[instance.operation],
@@ -211,9 +211,9 @@ const _$StrokeAlignEnumMap = {
   StrokeAlign.center: 'CENTER',
 };
 
-const _$StyleTypeEnumMap = {
-  StyleType.fill: 'FILL',
-  StyleType.text: 'TEXT',
-  StyleType.effect: 'EFFECT',
-  StyleType.grid: 'GRID',
+const _$StyleTypeKeyEnumMap = {
+  StyleTypeKey.fill: 'fill',
+  StyleTypeKey.text: 'text',
+  StyleTypeKey.effect: 'effect',
+  StyleTypeKey.grid: 'grid',
 };
