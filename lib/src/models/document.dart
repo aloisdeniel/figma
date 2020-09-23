@@ -1,3 +1,4 @@
+import 'package:figma/src/converters/converters.dart';
 import 'package:figma/src/models/node.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -8,6 +9,7 @@ part 'document.g.dart';
 @JsonSerializable()
 class Document extends Node {
   /// An array of canvases attached to the document
+  @NodeJsonConverter()
   final List<Node> children;
 
   Document({this.children});

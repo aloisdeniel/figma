@@ -1,3 +1,4 @@
+import 'package:figma/src/converters/converters.dart';
 import 'package:figma/src/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -7,6 +8,7 @@ part 'frame.g.dart';
 @JsonSerializable()
 class Frame extends Node {
   /// An array of nodes that are direct children of this node
+  @NodeJsonConverter()
   final List<Node> children;
 
   /// If true, layer is locked and cannot be edited

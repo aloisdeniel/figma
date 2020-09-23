@@ -1,3 +1,4 @@
+import 'package:figma/src/converters/converters.dart';
 import 'package:figma/src/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -18,6 +19,7 @@ enum Operation {
 @JsonSerializable()
 class BooleanOperation extends Vector {
   /// An array of nodes that are being boolean operated on
+  @NodeJsonConverter()
   final List<Node> children;
 
   /// A string enum with value of "UNION", "INTERSECT", "SUBTRACT", or "EXCLUDE"

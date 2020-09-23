@@ -1,3 +1,4 @@
+import 'package:figma/src/converters/converters.dart';
 import 'package:figma/src/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -10,6 +11,7 @@ part 'canvas.g.dart';
 @JsonSerializable()
 class Canvas extends Node {
   /// An array of top level layers on the canvas
+  @NodeJsonConverter()
   final List<Node> children;
 
   /// Background color of the canvas.
