@@ -8,6 +8,11 @@ part of 'frame.dart';
 
 Frame _$FrameFromJson(Map<String, dynamic> json) {
   return Frame(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    visible: json['visible'] as bool,
+    pluginData: json['pluginData'],
+    sharedPluginData: json['sharedPluginData'],
     children: (json['children'] as List)
         ?.map(const NodeJsonConverter().fromJson)
         ?.toList(),
@@ -77,6 +82,11 @@ Frame _$FrameFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$FrameToJson(Frame instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'visible': instance.visible,
+      'pluginData': instance.pluginData,
+      'sharedPluginData': instance.sharedPluginData,
       'children':
           instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
       'locked': instance.locked,

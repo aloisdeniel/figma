@@ -12,10 +12,26 @@ class Document extends Node {
   @NodeJsonConverter()
   final List<Node> children;
 
-  Document({this.children});
+  Document({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
+    this.children,
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
-  List<Object> get props => [children];
+  List<Object> get props => [
+        ...super.props,
+        children,
+      ];
 
   @override
   factory Document.fromJson(Map<String, dynamic> json) =>

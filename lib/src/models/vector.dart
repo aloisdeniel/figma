@@ -103,6 +103,11 @@ class Vector extends Node {
   final Map<StyleType, String> styles;
 
   Vector({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.locked,
     this.exportSettings,
     this.blendMode,
@@ -129,10 +134,17 @@ class Vector extends Node {
     this.strokeGeometry,
     this.strokeAlign,
     this.styles,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         locked,
         exportSettings,
         blendMode,

@@ -24,14 +24,26 @@ class Canvas extends Node {
   final List<ExportSetting> exportSettings;
 
   Canvas({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.children,
     this.backgroundColor,
     this.prototypeStartNodeID,
     this.exportSettings,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         children,
         backgroundColor,
         prototypeStartNodeID,

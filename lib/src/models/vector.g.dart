@@ -8,6 +8,11 @@ part of 'vector.dart';
 
 Vector _$VectorFromJson(Map<String, dynamic> json) {
   return Vector(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    visible: json['visible'] as bool,
+    pluginData: json['pluginData'],
+    sharedPluginData: json['sharedPluginData'],
     locked: json['locked'] as bool,
     exportSettings: (json['exportSettings'] as List)
         ?.map((e) => e == null
@@ -69,6 +74,11 @@ Vector _$VectorFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'visible': instance.visible,
+      'pluginData': instance.pluginData,
+      'sharedPluginData': instance.sharedPluginData,
       'locked': instance.locked,
       'exportSettings': instance.exportSettings,
       'blendMode': _$BlendModeEnumMap[instance.blendMode],

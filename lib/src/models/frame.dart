@@ -124,6 +124,11 @@ class Frame extends Node {
   final bool isMaskOutline;
 
   Frame({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.children,
     this.locked,
     this.fills,
@@ -155,10 +160,17 @@ class Frame extends Node {
     this.effects,
     this.isMask,
     this.isMaskOutline,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         children,
         locked,
         fills,
