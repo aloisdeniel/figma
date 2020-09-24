@@ -41,7 +41,7 @@ enum VerticalConstraint {
 
   /// Node is laid out relative to bottom of the containing frame
   bottom,
-  @JsonValue('CENTEr')
+  @JsonValue('CENTER')
 
   /// Node is vertically centered relative to containing frame
   center,
@@ -72,8 +72,7 @@ class LayoutConstraint extends Equatable {
   @override
   List<Object> get props => [vertical, horizontal];
 
-  factory LayoutConstraint.fromJson(Map<String, dynamic> json) =>
-      _$LayoutConstraintFromJson(json);
+  factory LayoutConstraint.fromJson(Map<String, dynamic> json) => _$LayoutConstraintFromJson(json);
 
   Map<String, dynamic> toJson() => _$LayoutConstraintToJson(this);
 }

@@ -56,7 +56,7 @@ T _$enumDecodeNullable<T>(
 const _$VerticalConstraintEnumMap = {
   VerticalConstraint.top: 'TOP',
   VerticalConstraint.bottom: 'BOTTOM',
-  VerticalConstraint.center: 'CENTEr',
+  VerticalConstraint.center: 'CENTER',
   VerticalConstraint.topBottom: 'TOP_BOTTOM',
   VerticalConstraint.scale: 'SCALE',
 };
