@@ -147,7 +147,7 @@ class FigmaClient {
 
     var stream = transport.makeRequest(
       [
-        Header.ascii(':method', 'GET'),
+        Header.ascii(':method', method),
         Header.ascii(':path', uri.path),
         Header.ascii(':scheme', uri.scheme),
         Header.ascii(':authority', uri.host),
