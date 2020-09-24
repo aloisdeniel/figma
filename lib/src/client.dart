@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:figma/figma.dart';
 import 'package:figma/src/query.dart';
-import 'package:http/http.dart';
+import 'package:http2/http2.dart';
 
 const base = 'api.figma.com';
 
@@ -19,7 +20,7 @@ class FigmaClient {
   Future<Map<String, dynamic>> authenticatedGet(String url) async {
     final uri = Uri.parse(url);
 
-    return await post(uri.toString(), headers: _authHeaders).then((res) {
+    return await _send('POST', uri, _authHeaders).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return jsonDecode(res.body);
       } else {
@@ -101,7 +102,7 @@ class FigmaClient {
       [FigmaQuery query]) async {
     final uri = Uri.https(base, '$apiVersion$path', query?.params);
 
-    return await get(uri.toString(), headers: _authHeaders).then((res) {
+    return await await _send('GET', uri, _authHeaders).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return jsonDecode(res.body);
       } else {
@@ -113,8 +114,7 @@ class FigmaClient {
   Future<dynamic> _postFigma(String path, String body) async {
     final uri = Uri.https(base, '$apiVersion$path');
 
-    return await post(uri.toString(), body: body, headers: _authHeaders)
-        .then((res) {
+    return await _send('POST', uri, _authHeaders, body).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return jsonDecode(res.body);
       } else {
@@ -126,7 +126,7 @@ class FigmaClient {
   Future<dynamic> _deleteFigma(String path) async {
     final uri = Uri.https(base, '$apiVersion$path');
 
-    return await delete(uri.toString(), headers: _authHeaders).then((res) {
+    return await _send('DELETE', uri, _authHeaders).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return;
       } else {
@@ -135,8 +135,44 @@ class FigmaClient {
     });
   }
 
-  Map<String, String> get _authHeaders =>
-      {'X-Figma-Token': accessToken, 'Content-Type': 'application/json'};
+  Future<dynamic> _send(String method, Uri uri, Map<String, String> headers,
+      [String body]) async {
+    var transport = ClientTransportConnection.viaSocket(
+      await SecureSocket.connect(
+        uri.host,
+        uri.port,
+        supportedProtocols: ['h2'],
+      ),
+    );
+
+    var stream = transport.makeRequest(
+      [
+        Header.ascii(':method', 'GET'),
+        Header.ascii(':path', uri.path),
+        Header.ascii(':scheme', uri.scheme),
+        Header.ascii(':authority', uri.host),
+        ...headers.entries.map(
+          (e) => Header.ascii(e.key.toLowerCase(), e.value),
+        ),
+      ],
+      endStream: body == null,
+    );
+    if (body != null) {
+      stream.sendData(utf8.encode(body));
+    }
+    final buffer = StringBuffer();
+    await for (var message in stream.incomingMessages) {
+      if (message is DataStreamMessage) {
+        buffer.write(utf8.decode(message.bytes));
+      }
+    }
+    await transport.finish();
+  }
+
+  Map<String, String> get _authHeaders => {
+        'X-Figma-Token': accessToken,
+        'Content-Type': 'application/json',
+      };
 }
 
 class FigmaError extends Error {
