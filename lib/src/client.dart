@@ -135,7 +135,7 @@ class FigmaClient {
     });
   }
 
-  Future<dynamic> _send(String method, Uri uri, Map<String, String> headers,
+  Future<_Response> _send(String method, Uri uri, Map<String, String> headers,
       [String body]) async {
     var transport = ClientTransportConnection.viaSocket(
       await SecureSocket.connect(
@@ -158,21 +158,38 @@ class FigmaClient {
       endStream: body == null,
     );
     if (body != null) {
-      stream.sendData(utf8.encode(body));
+      stream.sendData(utf8.encode(body), endStream: true);
     }
+    var status = 200;
     final buffer = StringBuffer();
     await for (var message in stream.incomingMessages) {
-      if (message is DataStreamMessage) {
+      if (message is HeadersStreamMessage) {
+        for (var header in message.headers) {
+          var name = utf8.decode(header.name);
+          var value = utf8.decode(header.value);
+          if (name == ':status') {
+            status = int.parse(value);
+          }
+        }
+      } else if (message is DataStreamMessage) {
         buffer.write(utf8.decode(message.bytes));
       }
     }
     await transport.finish();
+
+    return _Response(status, buffer.toString());
   }
 
   Map<String, String> get _authHeaders => {
         'X-Figma-Token': accessToken,
         'Content-Type': 'application/json',
       };
+}
+
+class _Response {
+  final int statusCode;
+  final String body;
+  const _Response(this.statusCode, this.body);
 }
 
 class FigmaError extends Error {
