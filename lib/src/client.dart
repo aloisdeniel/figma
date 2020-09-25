@@ -102,7 +102,7 @@ class FigmaClient {
       [FigmaQuery query]) async {
     final uri = Uri.https(base, '$apiVersion$path', query?.params);
 
-    return await await _send('GET', uri, _authHeaders).then((res) {
+    return await _send('GET', uri, _authHeaders).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return jsonDecode(res.body);
       } else {
@@ -148,7 +148,7 @@ class FigmaClient {
     var stream = transport.makeRequest(
       [
         Header.ascii(':method', method),
-        Header.ascii(':path', uri.path),
+        Header.ascii(':path', uri.path + (uri.hasQuery ? '?${uri.query}' : '')),
         Header.ascii(':scheme', uri.scheme),
         Header.ascii(':authority', uri.host),
         ...headers.entries.map(

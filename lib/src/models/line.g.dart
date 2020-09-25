@@ -198,6 +198,7 @@ const _$StrokeAlignEnumMap = {
 
 const _$StyleTypeKeyEnumMap = {
   StyleTypeKey.fill: 'fill',
+  StyleTypeKey.stroke: 'stroke',
   StyleTypeKey.text: 'text',
   StyleTypeKey.effect: 'effect',
   StyleTypeKey.grid: 'grid',

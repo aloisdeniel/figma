@@ -9,13 +9,15 @@ enum StyleType {
   @JsonValue('EFFECT')
   effect,
   @JsonValue('GRID')
-  grid
+  grid,
 }
 
 /// The type of style as string enum for keys
 enum StyleTypeKey {
   @JsonValue('fill')
   fill,
+  @JsonValue('stroke')
+  stroke,
   @JsonValue('text')
   text,
   @JsonValue('effect')
