@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+**BREAKING CHANGES:**
+
+- Migrate to HTTP2 protocol
+
 ## 1.0.3
 
 - Join `ids` query param with comma instead of semicolon
