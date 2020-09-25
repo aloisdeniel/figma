@@ -55,4 +55,5 @@ jobs:
         }
         EOF
     - name: Publish package
+      continue-on-error: true # ignore failure on existing version
       run: pub publish -f
