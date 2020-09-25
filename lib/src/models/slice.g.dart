@@ -8,6 +8,11 @@ part of 'slice.dart';
 
 Slice _$SliceFromJson(Map<String, dynamic> json) {
   return Slice(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    visible: json['visible'] as bool,
+    pluginData: json['pluginData'],
+    sharedPluginData: json['sharedPluginData'],
     exportSettings: (json['exportSettings'] as List)
         ?.map((e) => e == null
             ? null
@@ -27,6 +32,11 @@ Slice _$SliceFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$SliceToJson(Slice instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'visible': instance.visible,
+      'pluginData': instance.pluginData,
+      'sharedPluginData': instance.sharedPluginData,
       'exportSettings': instance.exportSettings,
       'absoluteBoundingBox': instance.absoluteBoundingBox,
       'size': instance.size,

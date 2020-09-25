@@ -24,14 +24,26 @@ class Slice extends Node {
   final List<List<num>> relativeTransform;
 
   Slice({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.exportSettings,
     this.absoluteBoundingBox,
     this.size,
     this.relativeTransform,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         exportSettings,
         absoluteBoundingBox,
         size,

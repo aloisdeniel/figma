@@ -1,3 +1,4 @@
+import 'package:figma/src/converters/converters.dart';
 import 'package:figma/src/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -7,6 +8,7 @@ part 'frame.g.dart';
 @JsonSerializable()
 class Frame extends Node {
   /// An array of nodes that are direct children of this node
+  @NodeJsonConverter()
   final List<Node> children;
 
   /// If true, layer is locked and cannot be edited
@@ -122,6 +124,11 @@ class Frame extends Node {
   final bool isMaskOutline;
 
   Frame({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.children,
     this.locked,
     this.fills,
@@ -153,10 +160,17 @@ class Frame extends Node {
     this.effects,
     this.isMask,
     this.isMaskOutline,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         children,
         locked,
         fills,

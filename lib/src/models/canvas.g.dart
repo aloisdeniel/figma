@@ -8,9 +8,13 @@ part of 'canvas.dart';
 
 Canvas _$CanvasFromJson(Map<String, dynamic> json) {
   return Canvas(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    visible: json['visible'] as bool,
+    pluginData: json['pluginData'],
+    sharedPluginData: json['sharedPluginData'],
     children: (json['children'] as List)
-        ?.map(
-            (e) => e == null ? null : Node.fromJson(e as Map<String, dynamic>))
+        ?.map(const NodeJsonConverter().fromJson)
         ?.toList(),
     backgroundColor: json['backgroundColor'] == null
         ? null
@@ -25,7 +29,13 @@ Canvas _$CanvasFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$CanvasToJson(Canvas instance) => <String, dynamic>{
-      'children': instance.children,
+      'id': instance.id,
+      'name': instance.name,
+      'visible': instance.visible,
+      'pluginData': instance.pluginData,
+      'sharedPluginData': instance.sharedPluginData,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson)?.toList(),
       'backgroundColor': instance.backgroundColor,
       'prototypeStartNodeID': instance.prototypeStartNodeID,
       'exportSettings': instance.exportSettings,

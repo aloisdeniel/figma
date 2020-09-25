@@ -100,9 +100,14 @@ class Vector extends Node {
   /// A mapping of a StyleType to style ID (see [Style]) of styles present on
   /// this node. The style ID can be used to look up more information about the
   /// style in the top-level styles field.
-  final Map<StyleType, String> styles;
+  final Map<StyleTypeKey, String> styles;
 
   Vector({
+    String id,
+    String name,
+    bool visible,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     this.locked,
     this.exportSettings,
     this.blendMode,
@@ -129,10 +134,17 @@ class Vector extends Node {
     this.strokeGeometry,
     this.strokeAlign,
     this.styles,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          visible: visible,
+          pluginData: pluginData,
+          sharedPluginData: sharedPluginData,
+        );
 
   @override
   List<Object> get props => [
+        ...super.props,
         locked,
         exportSettings,
         blendMode,
