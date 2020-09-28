@@ -1,3 +1,5 @@
+# figma
+
 ![sigv4](https://github.com/dnb-asa/figma/workflows/Dart%20CI/badge.svg) ![pub](https://img.shields.io/pub/v/figma.svg) [![style: pedantic](https://img.shields.io/badge/style-pedantic-9cf)](https://github.com/dart-lang/pedantic) ![license](https://img.shields.io/github/license/dnb-asa/figma.svg)
 
 A library for interacting with Figma APIs.
@@ -23,4 +25,4 @@ main() {
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://github.com/dnb-asa/figma/issues
+[tracker]: https://github.com/dnb-asa/figma/issues

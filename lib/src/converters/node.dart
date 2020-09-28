@@ -1,13 +1,12 @@
+import 'package:figma/src/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import '../../figma.dart';
-import '../models/models.dart';
 
 /// Converts a JSON decoded object to a [Node] specific instance regarding
 /// its `type` property.
 class NodeJsonConverter implements JsonConverter<Node, Object> {
   const NodeJsonConverter();
 
+  /// Parses a JSON object into a [Node] object
   @override
   Node fromJson(Object json) {
     if (json == null) {
@@ -50,6 +49,7 @@ class NodeJsonConverter implements JsonConverter<Node, Object> {
     }
   }
 
+  /// Parses a [Node] object into a JSON object
   @override
   Object toJson(Node object) {
     if (object == null) {

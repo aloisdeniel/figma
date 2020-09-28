@@ -1,3 +1,4 @@
+/// A wrapper that wraps all available query values for the Figma API
 class FigmaQuery {
   /// Comma separated list of nodes that you care about in the document.
   /// If specified, only a subset of the document will be returned corresponding

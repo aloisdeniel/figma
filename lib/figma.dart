@@ -1,10 +1,9 @@
-/// Support for doing something awesome.
+/// Figma API client.
 ///
-/// More dartdocs go here.
+/// To get started, retrieve your Figma access token [here](https://www.figma.com/login?cont=/developers/docs)
+/// and start making requests.
 library figma;
 
 export 'src/client.dart';
 export 'src/query.dart';
 export 'src/models/models.dart';
-
-// TODO: Export any libraries intended for clients of this package.

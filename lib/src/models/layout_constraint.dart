@@ -72,7 +72,8 @@ class LayoutConstraint extends Equatable {
   @override
   List<Object> get props => [vertical, horizontal];
 
-  factory LayoutConstraint.fromJson(Map<String, dynamic> json) => _$LayoutConstraintFromJson(json);
+  factory LayoutConstraint.fromJson(Map<String, dynamic> json) =>
+      _$LayoutConstraintFromJson(json);
 
   Map<String, dynamic> toJson() => _$LayoutConstraintToJson(this);
 }

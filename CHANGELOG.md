@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0+1
+
+- Satisfy the Pub analysis
+
 ## 2.0.0
 
 **BREAKING CHANGES:**
