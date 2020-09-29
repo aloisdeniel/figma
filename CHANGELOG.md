@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Fix incorrect property name `layoutConstraints` → `constraints`
+
 ## 2.0.0+1
 
 - Satisfy the Pub analysis
