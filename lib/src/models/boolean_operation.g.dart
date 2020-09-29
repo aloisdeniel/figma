@@ -27,10 +27,10 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) {
     preserveRatio: json['preserveRatio'] as bool,
     layoutAlign:
         _$enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
-    layoutConstraints: json['layoutConstraints'] == null
+    constraints: json['constraints'] == null
         ? null
         : LayoutConstraint.fromJson(
-            json['layoutConstraints'] as Map<String, dynamic>),
+            json['constraints'] as Map<String, dynamic>),
     transitionNodeID: json['transitionNodeID'] as String,
     transitionDuration: json['transitionDuration'] as int,
     transitionEasing:
@@ -89,7 +89,7 @@ Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
       'blendMode': _$BlendModeEnumMap[instance.blendMode],
       'preserveRatio': instance.preserveRatio,
       'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
-      'layoutConstraints': instance.layoutConstraints,
+      'constraints': instance.constraints,
       'transitionNodeID': instance.transitionNodeID,
       'transitionDuration': instance.transitionDuration,
       'transitionEasing': _$EasingTypeEnumMap[instance.transitionEasing],

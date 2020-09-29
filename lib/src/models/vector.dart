@@ -22,7 +22,7 @@ class Vector extends Node {
   final LayoutAlign layoutAlign;
 
   /// Horizontal and vertical layout constraints for node
-  final LayoutConstraint layoutConstraints;
+  final LayoutConstraint constraints;
 
   /// Node ID of node to transition to in prototyping
   final String transitionNodeID;
@@ -113,7 +113,7 @@ class Vector extends Node {
     this.blendMode,
     this.preserveRatio,
     this.layoutAlign,
-    this.layoutConstraints,
+    this.constraints,
     this.transitionNodeID,
     this.transitionDuration,
     this.transitionEasing,
@@ -150,7 +150,7 @@ class Vector extends Node {
         blendMode,
         preserveRatio,
         layoutAlign,
-        layoutConstraints,
+        constraints,
         transitionNodeID,
         transitionDuration,
         transitionEasing,
