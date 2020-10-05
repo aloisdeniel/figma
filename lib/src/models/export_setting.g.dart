@@ -59,4 +59,5 @@ const _$ExportFormatEnumMap = {
   ExportFormat.jpg: 'JPG',
   ExportFormat.png: 'PNG',
   ExportFormat.svg: 'SVG',
+  ExportFormat.pdf: 'PDF',
 };
