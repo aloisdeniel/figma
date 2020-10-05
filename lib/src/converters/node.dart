@@ -13,7 +13,7 @@ class NodeJsonConverter implements JsonConverter<Node, Object> {
       return null;
     }
     final node = Node.fromJson(json);
-    switch (node.type.toUpperCase()) {
+    switch (node.type?.toUpperCase()) {
       case 'CANVAS':
         return Canvas.fromJson(json);
       case 'FRAME':
