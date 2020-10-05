@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+- Add PDF as export format
+
 ## 2.0.1
 
 - Fix incorrect property name `layoutConstraints` → `constraints`
