@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3
+
+- Fix `authenticatedGet` method incorrectly doing `POST` requests
+
 ## 2.0.2
 
 - Add PDF as export format
