@@ -22,7 +22,7 @@ class FigmaClient {
   Future<Map<String, dynamic>> authenticatedGet(String url) async {
     final uri = Uri.parse(url);
 
-    return await _send('POST', uri, _authHeaders).then((res) {
+    return await _send('GET', uri, _authHeaders).then((res) {
       if (res.statusCode >= 200 && res.statusCode < 300) {
         return jsonDecode(res.body);
       } else {
