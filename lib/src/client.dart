@@ -182,7 +182,7 @@ class FigmaClient {
       stream.sendData(utf8.encode(body), endStream: true);
     }
     var status = 200;
-    final buffer = StringBuffer();
+    final buffer = <int>[];
     await for (var message in stream.incomingMessages) {
       if (message is HeadersStreamMessage) {
         for (var header in message.headers) {
@@ -193,12 +193,12 @@ class FigmaClient {
           }
         }
       } else if (message is DataStreamMessage) {
-        buffer.write(utf8.decode(message.bytes));
+        buffer.addAll(message.bytes);
       }
     }
     await transport.finish();
 
-    return _Response(status, buffer.toString());
+    return _Response(status, utf8.decode(buffer));
   }
 
   Map<String, String> get _authHeaders => {
