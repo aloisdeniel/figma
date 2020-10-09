@@ -1,6 +1,6 @@
 {
 	"build": {
-		"dockerfile": "cirrusci/flutter"
+		"dockerfile": "cirrusci/flutter:stable"
 	},
 	"extensions": [
 		"Dart-Code.dart-code",
