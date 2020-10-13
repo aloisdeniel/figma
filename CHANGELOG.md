@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+- Decode HTTP2 messages only when all bytes are received
+
 ## 2.0.3
 
 - Fix `authenticatedGet` method incorrectly doing `POST` requests
