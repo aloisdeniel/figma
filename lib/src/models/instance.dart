@@ -30,7 +30,7 @@ class Instance extends Frame {
     LayoutConstraint constraints,
     LayoutAlign layoutAlign,
     String transitionNodeID,
-    int transitionDuration,
+    double transitionDuration,
     EasingType transitionEasing,
     double opacity,
     SizeRectangle absoluteBoundingBox,

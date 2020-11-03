@@ -40,7 +40,7 @@ Text _$TextFromJson(Map<String, dynamic> json) {
         : LayoutConstraint.fromJson(
             json['constraints'] as Map<String, dynamic>),
     transitionNodeID: json['transitionNodeID'] as String,
-    transitionDuration: json['transitionDuration'] as int,
+    transitionDuration: (json['transitionDuration'] as num)?.toDouble(),
     transitionEasing:
         _$enumDecodeNullable(_$EasingTypeEnumMap, json['transitionEasing']),
     opacity: (json['opacity'] as num)?.toDouble(),

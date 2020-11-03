@@ -28,7 +28,7 @@ class Vector extends Node {
   final String transitionNodeID;
 
   /// The duration of the prototyping transition on this node (in milliseconds)
-  final int transitionDuration;
+  final double transitionDuration;
 
   /// The easing curve used in the prototyping transition on this node
   final EasingType transitionEasing;

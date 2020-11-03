@@ -41,7 +41,7 @@ class BooleanOperation extends Vector {
     LayoutAlign layoutAlign,
     LayoutConstraint constraints,
     String transitionNodeID,
-    int transitionDuration,
+    double transitionDuration,
     EasingType transitionEasing,
     double opacity,
     SizeRectangle absoluteBoundingBox,

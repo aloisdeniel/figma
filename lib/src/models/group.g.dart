@@ -45,7 +45,7 @@ Group _$GroupFromJson(Map<String, dynamic> json) {
     layoutAlign:
         _$enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
     transitionNodeID: json['transitionNodeID'] as String,
-    transitionDuration: json['transitionDuration'] as int,
+    transitionDuration: (json['transitionDuration'] as num)?.toDouble(),
     transitionEasing:
         _$enumDecodeNullable(_$EasingTypeEnumMap, json['transitionEasing']),
     opacity: (json['opacity'] as num)?.toDouble(),
