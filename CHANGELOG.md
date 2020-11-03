@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.5
+
+- Use decimal numbers for `transitionDuration` property
+
 ## 2.0.4
 
 - Decode HTTP2 messages only when all bytes are received
