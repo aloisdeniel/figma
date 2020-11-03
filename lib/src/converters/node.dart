@@ -44,6 +44,8 @@ class NodeJsonConverter implements JsonConverter<Node, Object> {
         return Instance.fromJson(json);
       case 'DOCUMENT':
         return Document.fromJson(json);
+      case 'VARIANT_COMPONENT':
+        return Frame.fromJson(json);
       default:
         throw UnsupportedError('Unsupported node type : ${node.type}');
     }

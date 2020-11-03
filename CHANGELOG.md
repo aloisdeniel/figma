@@ -2,6 +2,7 @@
 
 ## 2.0.5
 
+- Add `VARIANT_COMPONENT` node type
 - Use decimal numbers for `transitionDuration` property
 
 ## 2.0.4
