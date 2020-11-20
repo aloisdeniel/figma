@@ -156,6 +156,7 @@ class Vector extends Node {
         blendMode,
         preserveRatio,
         layoutAlign,
+        layoutGrow,
         constraints,
         transitionNodeID,
         transitionDuration,
