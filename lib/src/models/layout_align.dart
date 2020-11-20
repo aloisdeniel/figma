@@ -14,5 +14,7 @@ enum LayoutAlign {
   @JsonValue('MAX')
   max,
   @JsonValue('STRETCH')
-  stretch
+  stretch,
+  @JsonValue('INHERIT')
+  inherit,
 }

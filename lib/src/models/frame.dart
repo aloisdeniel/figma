@@ -1,5 +1,9 @@
 import 'package:figma/src/converters/converters.dart';
+import 'package:figma/src/models/primary_axis_align_items.dart';
+import 'package:figma/src/models/counter_axis_align_items.dart';
 import 'package:figma/src/models/models.dart';
+import 'package:figma/src/models/primary_axis_sizing_mode.dart';
+import 'package:figma/src/models/counter_axis_sizing_mode.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'frame.g.dart';
@@ -54,6 +58,32 @@ class Frame extends Node {
   /// correspond to "LEFT" and "RIGHT".
   final LayoutAlign layoutAlign;
 
+  /// Determines how the auto-layout frame’s children should be aligned in
+  /// the primary axis direction. This property is only applicable for
+  /// auto-layout frames.
+  final PrimaryAxisAlignItems primaryAxisAlignItems;
+
+  /// Determines how the auto-layout frame’s children should be aligned in
+  /// the counter axis direction. This property is only applicable for
+  /// auto-layout frames.
+  final CounterAxisAlignItems counterAxisAlignItems;
+
+  /// The padding betweeen the left border of the frame and its children.
+  /// This property is only applicable for auto-layout frames.
+  final double paddingLeft;
+
+  /// The padding betweeen the top border of the frame and its children.
+  /// This property is only applicable for auto-layout frames.
+  final double paddingTop;
+
+  /// The padding betweeen the right border of the frame and its children.
+  /// This property is only applicable for auto-layout frames.
+  final double paddingRight;
+
+  /// The padding betweeen the bottom border of the frame and its children.
+  /// This property is only applicable for auto-layout frames.
+  final double paddingBottom;
+
   /// Node ID of node to transition to in prototyping
   final String transitionNodeID;
 
@@ -91,6 +121,11 @@ class Frame extends Node {
   /// or an automatic length (determined by the layout engine). This property
   /// is only applicable for auto-layout frames.
   final CounterAxisSizingMode counterAxisSizingMode;
+
+  /// Whether the primary axis has a fixed length (determined by the user) or
+  /// an automatic length (determined by the layout engine). This property is
+  /// only applicable for auto-layout frames.
+  final PrimaryAxisSizingMode primaryAxisSizingMode;
 
   /// The horizontal padding between the borders of the frame and its children.
   /// This property is only applicable for auto-layout frames.
@@ -151,7 +186,14 @@ class Frame extends Node {
     this.relativeTransform,
     this.clipsContent,
     this.layoutMode,
+    this.primaryAxisAlignItems,
+    this.counterAxisAlignItems,
+    this.primaryAxisSizingMode,
     this.counterAxisSizingMode,
+    this.paddingBottom,
+    this.paddingLeft,
+    this.paddingRight,
+    this.paddingTop,
     this.horizontalPadding,
     this.verticalPadding,
     this.itemSpacing,
