@@ -23,6 +23,7 @@ Star _$StarFromJson(Map<String, dynamic> json) {
     preserveRatio: json['preserveRatio'] as bool,
     layoutAlign:
         _$enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
+    layoutGrow: (json['layoutGrow'] as num)?.toDouble(),
     constraints: json['constraints'] == null
         ? null
         : LayoutConstraint.fromJson(
@@ -83,6 +84,7 @@ Map<String, dynamic> _$StarToJson(Star instance) => <String, dynamic>{
       'exportSettings': instance.exportSettings,
       'blendMode': _$BlendModeEnumMap[instance.blendMode],
       'preserveRatio': instance.preserveRatio,
+      'layoutGrow': instance.layoutGrow,
       'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
       'constraints': instance.constraints,
       'transitionNodeID': instance.transitionNodeID,
@@ -167,6 +169,7 @@ const _$LayoutAlignEnumMap = {
   LayoutAlign.center: 'CENTER',
   LayoutAlign.max: 'MAX',
   LayoutAlign.stretch: 'STRETCH',
+  LayoutAlign.inherit: 'INHERIT',
 };
 
 const _$EasingTypeEnumMap = {

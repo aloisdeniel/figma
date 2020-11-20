@@ -61,8 +61,18 @@ Frame _$FrameFromJson(Map<String, dynamic> json) {
         ?.toList(),
     clipsContent: json['clipsContent'] as bool,
     layoutMode: _$enumDecodeNullable(_$LayoutModeEnumMap, json['layoutMode']),
+    primaryAxisAlignItems: _$enumDecodeNullable(
+        _$PrimaryAxisAlignItemsEnumMap, json['primaryAxisAlignItems']),
+    counterAxisAlignItems: _$enumDecodeNullable(
+        _$CounterAxisAlignItemsEnumMap, json['counterAxisAlignItems']),
+    primaryAxisSizingMode: _$enumDecodeNullable(
+        _$PrimaryAxisSizingModeEnumMap, json['primaryAxisSizingMode']),
     counterAxisSizingMode: _$enumDecodeNullable(
         _$CounterAxisSizingModeEnumMap, json['counterAxisSizingMode']),
+    paddingBottom: (json['paddingBottom'] as num)?.toDouble(),
+    paddingLeft: (json['paddingLeft'] as num)?.toDouble(),
+    paddingRight: (json['paddingRight'] as num)?.toDouble(),
+    paddingTop: (json['paddingTop'] as num)?.toDouble(),
     horizontalPadding: json['horizontalPadding'] as num,
     verticalPadding: json['verticalPadding'] as num,
     itemSpacing: json['itemSpacing'] as num,
@@ -101,6 +111,14 @@ Map<String, dynamic> _$FrameToJson(Frame instance) => <String, dynamic>{
       'preserveRatio': instance.preserveRatio,
       'constraints': instance.constraints,
       'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
+      'primaryAxisAlignItems':
+          _$PrimaryAxisAlignItemsEnumMap[instance.primaryAxisAlignItems],
+      'counterAxisAlignItems':
+          _$CounterAxisAlignItemsEnumMap[instance.counterAxisAlignItems],
+      'paddingLeft': instance.paddingLeft,
+      'paddingTop': instance.paddingTop,
+      'paddingRight': instance.paddingRight,
+      'paddingBottom': instance.paddingBottom,
       'transitionNodeID': instance.transitionNodeID,
       'transitionDuration': instance.transitionDuration,
       'transitionEasing': _$EasingTypeEnumMap[instance.transitionEasing],
@@ -112,6 +130,8 @@ Map<String, dynamic> _$FrameToJson(Frame instance) => <String, dynamic>{
       'layoutMode': _$LayoutModeEnumMap[instance.layoutMode],
       'counterAxisSizingMode':
           _$CounterAxisSizingModeEnumMap[instance.counterAxisSizingMode],
+      'primaryAxisSizingMode':
+          _$PrimaryAxisSizingModeEnumMap[instance.primaryAxisSizingMode],
       'horizontalPadding': instance.horizontalPadding,
       'verticalPadding': instance.verticalPadding,
       'itemSpacing': instance.itemSpacing,
@@ -188,6 +208,7 @@ const _$LayoutAlignEnumMap = {
   LayoutAlign.center: 'CENTER',
   LayoutAlign.max: 'MAX',
   LayoutAlign.stretch: 'STRETCH',
+  LayoutAlign.inherit: 'INHERIT',
 };
 
 const _$EasingTypeEnumMap = {
@@ -201,6 +222,24 @@ const _$LayoutModeEnumMap = {
   LayoutMode.none: 'NONE',
   LayoutMode.horizontal: 'HORIZONTAL',
   LayoutMode.vertical: 'VERTICAL',
+};
+
+const _$PrimaryAxisAlignItemsEnumMap = {
+  PrimaryAxisAlignItems.min: 'MIN',
+  PrimaryAxisAlignItems.center: 'CENTER',
+  PrimaryAxisAlignItems.max: 'MAX',
+  PrimaryAxisAlignItems.spaceBetween: 'SPACE_BETWEEN',
+};
+
+const _$CounterAxisAlignItemsEnumMap = {
+  CounterAxisAlignItems.min: 'MIN',
+  CounterAxisAlignItems.center: 'CENTER',
+  CounterAxisAlignItems.max: 'MAX',
+};
+
+const _$PrimaryAxisSizingModeEnumMap = {
+  PrimaryAxisSizingMode.fixed: 'FIXED',
+  PrimaryAxisSizingMode.auto: 'AUTO',
 };
 
 const _$CounterAxisSizingModeEnumMap = {

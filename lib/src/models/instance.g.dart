@@ -190,6 +190,7 @@ const _$LayoutAlignEnumMap = {
   LayoutAlign.center: 'CENTER',
   LayoutAlign.max: 'MAX',
   LayoutAlign.stretch: 'STRETCH',
+  LayoutAlign.inherit: 'INHERIT',
 };
 
 const _$EasingTypeEnumMap = {
