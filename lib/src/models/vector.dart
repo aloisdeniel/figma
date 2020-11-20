@@ -17,6 +17,11 @@ class Vector extends Node {
   /// Keep height and width constrained to same ratio
   final bool preserveRatio;
 
+  /// This property is applicable only for direct children of auto-layout frames,
+  /// ignored otherwise. Determines whether a layer should stretch along the parent’s
+  /// primary axis. A `0` corresponds to a fixed size and `1` corresponds to stretch
+  final double layoutGrow;
+
   /// How the layer is aligned inside an auto-layout frame. This property is
   /// only provided for direct children of auto-layout frames.
   final LayoutAlign layoutAlign;
@@ -113,6 +118,7 @@ class Vector extends Node {
     this.blendMode,
     this.preserveRatio,
     this.layoutAlign,
+    this.layoutGrow,
     this.constraints,
     this.transitionNodeID,
     this.transitionDuration,
