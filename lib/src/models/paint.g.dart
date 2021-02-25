@@ -85,7 +85,7 @@ const _$PaintTypeEnumMap = {
   PaintType.gradientLinear: 'GRADIENT_LINEAR',
   PaintType.gradientRadial: 'GRADIENT_RADIAL',
   PaintType.gradientAngular: 'GRADIENT_ANGULAR',
-  PaintType.gradientDiamond: 'GRADIENT_DIAMON',
+  PaintType.gradientDiamond: 'GRADIENT_DIAMOND',
   PaintType.image: 'IMAGE',
   PaintType.emoji: 'EMOJI',
 };
